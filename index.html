@@ -86,83 +86,84 @@
 
   <!-- Tile-->
 
-
-<main>
- <div class"category">
- <h5 id="category">Services </h5> 
-<div class="main-body">
-  <div class="tile-canvas">
-    <!--Prism--> 
-  <div class="tile">
-         <div class="icons">
+<div id="mask" style="position: fixed; top: 0; left: 0; right:0; bottom:0; background: rgba(0,0,0,0.5); z-index: 10; display: none; "></div>
+<main class="main_page">
+ <div class="category">
+ <h5>Services </h5> 
+ <div class="main-body">
+      <div class="block_itme_sum">
+        <!--Prism--> 
+        <div class="block_itme block_itme1">
+        <div class="icons">
             <img class="star" src="images/star.svg">
             <img class="alerts" src="images/prism.svg">
             <img class="settings" src="images/settings.svg">
         </div>
-          <div class="tile-header">
+        <div class="tile-header">
           <h3>Prism</h3>
           <h4>Manage your on-prem Nutanix infrastructure</h4>
         </div>
         <div class="launch"></div>
         <a href="prism.html" class="btnalerts">Launch</a> 
         </div>
-      </div>
       
-  <!--Era-->
- <div class="permissions">
-         <div class="icons">
+        <!--Era-->
+        <div class="block_itme">
+        <div class="icons">
             <img class="star" src="images/star.svg">
             <img class="alerts" src="images/era.svg">
             <img class="settings" src="images/settings.svg">
         </div>
-          <div class="tile-header">
+        <div class="tile-header">
           <h3>Era</h3>
           <h4>Automates and simplifies database management with one-click</h4>
         </div>
         <div class="launch"></div>
-        <a href="" class="btn">Launch</a> 
+        <a href="https://nutanix.design/mockup/prism-2.0/index.html" class="btn">Launch</a> 
         </div>
-      </div>
 
-<!--Calm-->
-       <div class="updates">
-         <div class="icons">
+        <!--Calm-->
+        <div class="block_itme">
+        <div class="icons">
             <img class="star" src="images/star.svg">
             <img class="alerts" src="images/calm.svg">
             <img class="settings" src="images/settings.svg">
         </div>
-          <div class="tile-header">
+        <div class="tile-header">
           <h3>Calm</h3>
           <h4>View deployed applications and take actions on them</h4>
         </div>
         <div class="launch"></div>
-        <a href="" class="btn">Launch</a> 
+        <a href="https://alisoncheng101.github.io/NC-Prototype/index2.html" class="btn">Launch</a> 
         <div id="loadingbar-frame"></div>
         </div>
+
+        <div class="clearfix"></div>
+
       </div>
 
 
 
-    <h5> Global Tools </h5>
+      <h5> Global Tools </h5>
 
- <!--Permissions-->
-   <div class="era">
-         <div class="icons">
-            <img class="star" src="images/star.svg">
-            <img class="alerts" src="images/permissions.svg">
-            <img class="settings" src="images/settings.svg">
+      <div>
+        <!--Permissions-->
+        <div class="block_tool block_tool1">
+           <div class="icons">
+              <img class="star" src="images/star.svg">
+              <img class="alerts" src="images/permissions.svg">
+              <img class="settings" src="images/settings.svg">
+          </div>
+            <div class="tile-header">
+            <h3 style="text-align: center">Permissions</h3>
+            <h4>Control users, permissions and roles across Nutanix Central</h4>
+          </div>
+          <div class="launch"></div>
+          <a href="https://nutanix.design/mockup/prism-2.0/index.html" target="_blank" class="btngrn">Launch</a> 
         </div>
-          <div class="tile-header">
-          <h3 style="text-align: center">Permissions</h3>
-          <h4>Control users, permissions and roles across Nutanix Central</h4>
-        </div>
-        <div class="launch"></div>
-        <a href="" target="_blank" class="btngrn">Launch</a> 
-        </div>
-      </div>
 
-      <!--Updates-->
-       <div class="prism">
+        <!--Updates-->
+        <div class="block_tool">
          <div class="icons">
             <img class="star" src="images/star.svg">
             <img class="alerts" src="images/updates.svg">
@@ -173,15 +174,17 @@
           <h4>Install upgrades across all Nutanix services</h4>
         </div>
         <div class="launch"></div>
-        <a href="https://alisoncheng101.github.io/NC-Prototype/index2.html" class="btngrn" >Launch</a> 
+        <a href="https://nutanix.design/mockup/prism-2.0/index.html" class="btngrn" >Launch</a> 
         <div id="loadingbar-frame"></div>
         </div>
+
+        <div class="clearfix"></div>
       </div>
-
-
 
  
 </div>
+</div>
+</main>
 <div id="loading"></div>
 
 
@@ -225,18 +228,37 @@
 
     <script>
 
+var isPopShow = false;
 $('#mypop').click(function(event) {
-  $('#myDropdown').show();
+
+  if (!isPopShow) {
+    $('#myDropdown').show();
+    $('#mask').show();
+    $(this).addClass('focus');
+    isPopShow = true;
+  } else {
+    $('#myDropdown').hide();
+    $('#mask').hide();
+    $(this).removeClass('focus');
+    isPopShow = false;
+  }
+
   event.stopPropagation();
 });
 
 $('#myDropdown').click(function(event) {
   $('#myDropdown').show();
+  $('#mask').show();
+  $('#mypop').addClass('focus');
+  isPopShow = true;
   event.stopPropagation();
 });
 
 $(window).click(function() {
+  $('#mypop').removeClass('focus');
   $('#myDropdown').hide();
+  $('#mask').hide();
+  isPopShow = false;
 });
 
 
